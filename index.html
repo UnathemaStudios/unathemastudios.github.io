@@ -1,1 +1,1288 @@
-Hello World!
+<!DOCTYPE html>
+
+<html lang="{block:English}en{/block:English}{block:French}fr{/block:French}{block:German}de{/block:German}{block:Japanese}ja{/block:Japanese}{block:Italian}it{/block:Italian}{block:Spanish}es{/block:Spanish}{block:Polish}pl{/block:Polish}">
+<head>
+<!--
+Big Guy theme by GregSuj aka Gregory Sujkowski
+http://gregory.sujkowski.fr
+-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
+    
+    <meta name="description" content="{MetaDescription}">
+    
+    <meta name="color:Background" content="#1b1c1e">
+    
+    <meta name="color:Body" content="#1b1c1e">
+    <meta name="color:MenuLinks" content="#e9e9e9">
+    <meta name="color:Description" content="#909090">
+    <meta name="color:SocialIcons" content="#45494c">
+    <meta name="color:Headings" content="#101010">
+    <meta name="color:Links" content="#78c9a1">
+    <meta name="color:HeadingsLinks" content="#888888">
+    <meta name="color:Caption" content="#ffffff">
+    <meta name="color:Footer" content="#33323a">
+    <meta name="color:MusicInfo" content="#feeed6">
+    <meta name="color:MusicBoxColor" content="#f5ad58">
+    <meta name="color:Tags" content="#dfdfdf">
+    <meta name="if:ShowTags" content="1">
+    <meta name="if:ShowNoteCount" content="1">
+    <meta name="if:ShowTimeAgo" content="1">
+    <meta name="if:LikeButton" content="1">
+    <meta name="if:ReblogButton" content="1">
+    <meta name="if:InfiniteScroll" content="0">
+    <meta name="if:ShowSearchBar" content="1">
+    <meta name="if:WhiteAudioPlayer" content="1"/>
+    <meta name="if:GreyAudioPlayer" content="0"/>
+    <meta name="if:BlackAudioPlayer" content="0"/>
+    <meta name="if:Avatar" content="1">
+    <meta name="if:Twitter" content="1">
+    <meta name="if:Facebook" content="1">
+    <meta name="if:Dribbble" content="1">
+    <meta name="if:Behance" content="1">
+    <meta name="if:Youtube" content="1">
+    <meta name="if:Soundcloud" content="1">
+    <meta name="if:Googleplus" content="1">
+    <meta name="if:Vimeo" content="1">
+    <meta name="if:Instagram" content="1">
+    <meta name="if:Steam" content="1">
+    <meta name="if:Email" content="1">
+    <meta name="if:Linkedin" content="1">
+    <meta name="text:TwitterUrl" content="Your Link Here">
+    <meta name="text:FacebookUrl" content="Your Link Here">
+    <meta name="text:DribbbleUrl" content="Your Link Here">
+    <meta name="text:BehanceUrl" content="Your Link Here">
+    <meta name="text:YouTubeUrl" content="Your Link Here">
+    <meta name="text:SoundcloudUrl" content="Your Link Here">
+    <meta name="text:GoogleplusUrl" content="Your Link Here">
+    <meta name="text:VimeoUrl" content="Your Link Here">
+    <meta name="text:InstagramUrl" content="Your Link Here">
+    <meta name="text:SteamUrl" content="Your Link Here">
+    <meta name="text:LinkedinUrl" content="Your Link Here">
+    <meta name="text:EmailUrl" content="email@email.com">
+    <meta name="if:GoogleAnalyticsID" content="1">
+    <meta name="text:Google Analytics ID" content="UA-53415237-1">
+
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <link rel="stylesheet" href="http://static.tumblr.com/okik5op/KXKn9nfie/normalize-font.css" type="text/css" media="all">
+    
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script src="http://static.tumblr.com/okik5op/622n9keq6/jquery.photoset-grid.min.js"></script>
+<script src="http://static.tumblr.com/okik5op/ukhn9kepc/jquery.fitvids.js"></script>
+
+{block:IfInfiniteScroll}
+<script type="text/javascript" src="http://static.tumblr.com/okik5op/i7Dn9keqq/infinitescrolling.js"></script>
+{/block:IfInfiniteScroll}<script class="inline_embed" type="text/javascript">
+    var domain = document.domain,
+    photo_{PostID} = [{
+        "width": "{PhotoWidth-HighRes}",
+        "height": "{PhotoHeight-HighRes}",
+        "low_res": "{PhotoURL-250}",
+        "high_res": "{PhotoURL-HighRes}"
+    }];
+
+    function event_is_alt_key(e) {
+        return ((!e && window.event && (window.event.metaKey || window.event.altKey)) || (e && (e.metaKey || e.altKey)));
+    };
+
+    document.getElementById('photo_{PostID}').onclick = function (e) {
+        if (event_is_alt_key(e)) return true;
+
+        window.parent.Tumblr.Lightbox.init(photo_{PostID});
+
+        return false;
+    }
+</script>
+    <script type="text/javascript">
+    
+$(window).on('scroll', function() {
+			 $(".video").fitVids();
+			 
+			    $('.photoset-grid').photosetGrid();
+    
+    });
+
+    $(document).ready(function(){
+        
+        
+  $(".video").fitVids();
+ 
+  $('.photoset-grid').photosetGrid({
+  highresLinks: false,
+  rel: $('.photoset-grid').attr('data-id'),
+  gutter: '0px',
+
+  onComplete: function(){
+  
+	/* For Tumblr Lightbox */
+	$('.photoset-grid').each(function(){
+	  var imgs = $(this).find('img');
+	  var array = [];
+	  for(i=0; i<imgs.length; i++) {
+	    imgs.eq(i).attr('data-count',i+1);
+	  } 
+	  $(this).find('img').each(function(){
+	    var arrayPart = {
+	      width: $(this).data('width'),
+	      height: $(this).data('height'),
+	      low_res: $(this).attr('src'),
+	      high_res: $(this).data('highres')
+	    }
+	    array.push(arrayPart);
+	    $(this).on('click',function(){
+	      Tumblr.Lightbox.init(array,$(this).data('count'));
+	    });
+	  });
+	});
+	/* End Tumblr Lightbox */
+  
+  }
+});
+    
+});
+</script>
+
+<style type="text/css">
+  
+   	/* Font-face is in the normalise css file because it looked very ugly + did not diplayed well in Firefox */
+    
+.socicon {
+font-family: 'socicon' !important;
+color: {color:SocialIcons};
+}
+
+
+ul.social-icons {
+list-style-type: none;
+text-align: center;
+margin: 0;
+border: 0;
+padding: 0;
+font-size: 19px;
+}
+
+ul.social-icons li {
+display: inline-block;
+margin: 10px 18px 0 0;
+}
+
+    /* BASIC STYLES */
+    
+    img, video, object, embed {
+            max-width: 100%;
+            height: auto !important;
+        }
+        
+    body {
+        background: {color:Background};
+        font-family: Arial, Helvetica, sans-serif;
+        }
+            
+    html {
+        
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+        color: {color:Body};
+        font-size: 16px;
+        margin: 0;
+        
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+       
+        line-height: 1em;
+        color: {color:Headings};
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+h1 {
+font-size: 28px;
+text-align: center;
+}
+
+    h2 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 21px;
+    }
+      h4 {
+        font-size: 19px;
+    }
+
+    h5 {
+        font-size: 17px;
+    }
+      h6 {
+        font-size: 16px;
+    }
+
+p,blockquote {
+        border: 0;
+margin: 0;
+padding: 0;
+    }
+
+    a:link, a:visited {
+        opacity:1;
+        -o-transition: all .30s linear;
+        -ms-transition: all .30s linear;
+        -webkit-transition: all .30s linear;
+        -moz-transition: all .30s linear;
+        transition: all .30s linear;
+        color: {color:Links};
+        text-decoration: none;
+     }
+     
+    a:hover, a:active {
+        opacity: 0.5;
+
+     }
+
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+        color: {color:HeadingsLinks} !important;
+    }
+
+
+     
+     img {
+        max-width: 100%;
+        height: auto;
+       
+    }
+    .photo a img,.photo img { width:100%;}
+    .media iframe {
+         width: 100%;
+        display: block;
+     }
+
+/* PHOTOSET */
+div.photoset-row:hover{
+cursor:pointer;
+}
+.photo>a>img {width:100% !important;}
+/* CREDITS */
+div.credits {
+    line-height: 6px;
+    text-align:left;
+opacity: 0.5;
+margin: 10px 0 0 -7px;
+padding: 0;
+border: 0;
+font-size: 9px;
+position: fixed;
+bottom: 7px;
+font-style: italic;
+clear: both;
+}
+div.credits a {
+    color:#f1f1f1 !important;
+    
+}
+    
+/* NAVIGATION */
+
+    .prev, .next {
+display: inline-block;
+width: 49.5%;
+
+height: 75px;
+max-width: 1600px;
+margin: 0;
+padding: 0;
+border: 0;
+text-align: center;
+line-height: 5em;
+font-weight: bold;
+text-transform: uppercase;
+      transition-duration: 0.6s;  
+        -moz-transition-duration: 0.6s;  
+        -webkit-transition-duration: 0.6s;  
+        -o-transition-duration: 0.6s;
+          opacity:1;
+        
+}
+.prev:hover,.next:hover { 
+    opacity:1;
+    background: lightgrey;
+          transition-duration: 0.6s;  
+        -moz-transition-duration: 0.6s;  
+        -webkit-transition-duration: 0.6s;  
+        -o-transition-duration: 0.6s;
+}
+
+
+/* HEADER LOGO AND NAV */
+#avatar {
+margin: 10px auto;
+width: 100%;
+text-align: center;
+}
+#avatar a img {
+border-radius: 500px;
+}
+    
+div.description {
+color:{color:Description};
+text-align: left;
+font-size: 14px;
+margin: 25px 0 0 11px;
+
+}
+  .nav ul {
+list-style-type: none;
+text-align: left;
+padding: 0; 
+margin: 10px 0 0 10px;
+border: 0;
+/* font-size: 17px;
+line-height: 1.5em;*/
+font-size: 15px;
+line-height: 1.3em;
+font-weight: bold;}
+.nav ul li a {
+    color:{color:MenuLinks} !important;
+    
+}
+ /* PERMALINK PAGE NOTES */
+ol.notes {padding:0;margin:0;border-radius:2px;
+overflow:hidden;
+}
+li.note.like:nth-child(odd), li.note.reblog:nth-child(odd) {
+background: rgb(241, 241, 241);padding: 15px;
+}
+li.note.like:nth-child(even), li.note.reblog:nth-child(even) {
+background: rgb(223, 223, 223);padding: 15px;
+}
+/* MUSIC PLAYERS */
+.music-player-tumblr {position: relative; min-height: 250px; overflow:hidden;}
+.music-player-tumblr img {opacity:0.8;
+position: absolute;
+top: 0px;
+left: 0px;
+
+width: 250px;
+}
+.cover {z-index: 2;  width: 250px; position: absolute;}
+ 
+.audio-base-btn {opacity: 0.5;
+top: 50px;
+left: 50px;
+        {block:IfWhiteAudioPlayer}background-color: #fff;{/block:IfWhiteAudioPlayer}    
+        {block:IfGreyAudioPlayer}background-color: #ccc;{/block:IfGreyAudioPlayer}
+        {block:IfBlackAudioPlayer}background-color: #000;{/block:IfBlackAudioPlayer}
+        position: absolute;
+        z-index: 10;
+        width: 100px;
+        height:100px;
+border-radius: 50px;
+        margin-top: 25px;  margin-left: 25px;
+            transition-duration: 0.6s;  
+        -moz-transition-duration: 0.6s;  
+        -webkit-transition-duration: 0.6s;  
+        -o-transition-duration: 0.6s;}
+       
+       
+  }
+
+  
+.music-player-tumblr:hover .audio-base-btn, .music-player-tumblr:hover .audio-play-btn, {opacity: 1;
+    transition-duration: 0.6s;  
+        -moz-transition-duration: 0.6s;  
+        -webkit-transition-duration: 0.6s;  
+        -o-transition-duration: 0.6s;}
+ .audio-base-btn:hover {opacity: 1;}
+     
+.audio-play-btn{
+    opacity:1;
+width: 20px;
+height: 30px;
+overflow: hidden;
+position: relative;
+left: 37px;
+top: 35px;
+}
+
+.music-info {
+position: relative;
+right: 0;
+margin-left: 250px;
+width: 100%;
+z-index: 99;
+overflow: hidden;
+background-color: {color:MusicInfo};
+font-family:Arial, Helvetica, sans-serif;
+min-height: 250px;
+text-align: left;
+  color: {color:Body};
+ 
+font-size: 15px;
+}
+
+.track-name {
+font-size: 25px;
+font-weight: bold;
+margin: 85px 40px 0px;
+display: block;
+
+}
+       .artist-name, .album-name {
+font-style: italic;
+font-size: 15px;
+margin: 0 0 0 40px;
+display:block;
+}
+
+.video iframe.spotify_audio_player {
+width: 100%;
+background: rgb(32, 32, 32);
+max-height: 450px;
+}
+
+
+
+   iframe.soundcloud_audio_player{
+width: 100%;
+margin-top: 10px;
+}
+/* SELECTION */
+
+::-moz-selection  {
+background: #78c9a1;
+color: #f1f1f1;
+text-shadow: none;
+}
+::selection { 
+background: #78c9a1;
+color: #f1f1f1;
+text-shadow: none;
+}
+
+
+/* SEARCHBAR Copyright (c) 2012 Thibaut Courouble
+ * Licensed under the MIT License
+   ================================================== */
+
+
+
+input {
+    font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #555860;
+}
+
+.search {
+    position: relative;
+margin: 15px auto 5px auto;
+max-width: 150px;
+}
+
+.search input {
+    height: 26px;
+    width: 100%;
+    padding: 0 12px 0 25px;
+    background: white
+ url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAvElEQVQoz2M4cuwSAxTHAvEuIH4LxLeBeCkQGyDJgzGMsQiI/wPxQyCeCcSrgfgDEP8E4kB0DQlQxdOAmA1JUhqILwHxZygbruEw1Als6NYDsRnUsApkDd+AeDIWxTD8HOofuAaQW+fgUMwMddJkZA0boZrksGhIhjopBFmDATQ0rgKxMZLiTKjpf5ANg0l6A/ErqGkfoDQyvg0LKWTrRYE4BxoPIBwOVXQbWRMDntBBjg+YpvPEaECORCcAN3OED1Nr2h0AAAAASUVORK5CYII=') 8px 6px no-repeat;
+    border-width: 0px;
+
+border-radius: 57px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+  
+}
+
+.search input:focus {
+    outline: none;
+    border-color: none;
+    -webkit-box-shadow: 0 0 2px #f1f1f1;
+    -moz-box-shadow: 0 0 2px #f1f1f1;
+    -ms-box-shadow: 0 0 2px #f1f1f1;
+    -o-box-shadow: 0 0 2px #f1f1f1;
+    box-shadow: 0 0 2px #f1f1f1;
+}
+
+.search input:focus{ display: block }
+
+
+
+
+.lt-ie9 .search input { line-height: 26px }
+
+
+/* CHAT */
+
+ul.conversation {
+font-family: "Courier New", Courier, monospace;
+list-style-type: none;
+}
+li.line .person {
+font-weight: bold; font-size: 17px;
+}
+li.line.odd, li.line.even {
+margin-bottom: 8px;
+}
+/* QUOTE */
+
+blockquote {
+margin-left: 20px;
+padding-left: 15px;
+border-left: 5px #b0b0b0 solid;
+font-family:Helvetica, arial, sans-serif;
+font-weight:400;
+font-size:16px;
+}
+
+p.source {
+margin: 20px 0 0 20px;
+}
+/* SUBMISSION */
+
+.caption.submission {
+position: relative;
+}
+div.submission img {
+border-radius: 50px;
+}
+.submitter a {
+text-transform: uppercase;
+font-weight: bold;
+}
+span.submitter {
+position: absolute;
+top: 64px;
+left: 97px;
+}
+
+
+/* ANSWER */
+
+
+div.answer div.caption img {
+border-radius: 60px;
+margin: 13px;
+position: absolute;
+}
+div.answer div.caption {
+position: relative;
+}
+span.answer-txt {
+margin: 20px;
+display: block;
+}
+
+span.asker {
+display: inline-block;
+position: absolute;
+top: 75px;
+left: 110px;
+}
+a.asker, a.submitter {
+text-transform: uppercase;
+font-weight: bold;
+}
+
+span.question {
+display: inline-block;
+font-style: italic;
+text-align: left;
+position: relative;
+max-width: 800px;
+opacity: 0.5;
+margin-left: 135px;
+margin-top: 64px;
+}
+
+
+
+span.question:before {
+content: open-quote;
+font-family: arial, helvetica, sans-serif;
+font-weight: bold;
+font-size: 75px;
+opacity: 0.2;
+width: 56px;
+height: 40px;
+display: inline-block;
+position: absolute;
+top: -17px;
+left: -50px;
+}
+
+/* THEME SKULL */
+
+aside {
+text-align: right;
+max-width: 150px;
+position: fixed;
+height: 100%;
+min-height: 100%;
+}
+.container {
+max-width: 1600px;
+max-width: 1600px!important;
+padding: 0 15px;
+margin: 20px auto;
+}
+.content {
+margin-left: 170px;
+max-width: 1350px;
+}
+div.text{background: {color:Caption};
+border: 0;
+margin: 0;
+max-width: 1350px;
+padding: 40px 20px;
+text-align: justify;}
+.caption, .chat, .quote{
+background: {color:Caption};
+border: 0;
+margin: 0;
+max-width: 1350px;
+padding: 40px 20px;
+text-align: justify;
+}
+footer {position:relative;
+padding: 30px 30px 20px 0;
+background-color: {color:Footer};
+margin-top: 0px;
+font-size: 12px;
+border-radius: 0 0 3px 3px;
+line-height: 27px;
+margin-bottom: 30px;
+}
+.metadata .index li a, .metadata .index li {
+color: {color:Tags};
+}
+.index {
+max-width: 1600px;
+border: 0;
+margin: 0;
+display: inline-block;
+list-style-type: none;
+}
+
+ul.index li {
+display: inline-block;
+margin: 10px 10px 18px 0px;
+font-size: 13px;
+}
+
+#likereblog {
+float: right;
+position: absolute;
+right: 15px;
+bottom: 12px;
+}
+#likereblogpermalink {
+float: right;
+position: absolute;
+right: 15px;
+bottom: 5px;
+}
+ .like_button{
+float: left;
+margin-right: 15px;
+}
+a.reblog_button {
+float: left;
+margin-right: 6px;
+}
+
+
+
+.clear{
+  
+    clear: both;
+
+}
+
+
+
+/*----NOTES PERMALINK----*/
+span.action  {position: relative;
+top: -26px;
+left: 16px;}
+ol.notes {
+list-style-type: none;
+}
+img.avatar {
+border-radius: 50px;
+}
+
+@media screen and (max-width:800px) {
+    
+    body {
+        font-size: 13px;
+    }
+    
+    .content {
+        padding: 0;margin-left:inherit;
+    }
+    
+    aside {
+        text-align: center;
+        width: 100%!important;
+        max-width: 750px;
+        position: static;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+
+
+.music-player-tumblr {
+
+max-height: 425px;
+text-align: center;
+}
+.audio-base-btn {
+position: relative;
+text-align: center;
+
+margin: auto;
+top: 75px;
+display: block;
+left:0;
+margin-top: 25px;
+
+}
+.music-player-tumblr img {
+position: relative;
+top: -125px;
+
+width: 300px;
+margin: auto;
+}
+
+.music-info {
+margin-left:0;
+
+top: -129px;
+min-height: 200px;
+text-align: center;
+
+}
+
+
+
+.track-name {
+
+margin: 30px 40px 0px;
+
+}
+.artist-name, .album-name {
+
+margin: 0;
+
+}
+
+
+div.description {
+    color: {color:Description};
+text-align: center;
+font-size: 14px;
+margin: 10px 0 0 11px;
+
+}
+  .nav ul {
+list-style-type: none;
+text-align: center;
+padding: 0; 
+margin: 10px 0 0 10px;
+border: 0;
+font-size: 15px;
+line-height: 1.5em;
+}
+
+.audio {background-color:{color:MusicBoxColor};}
+    .nav li { 
+        display:inline;
+        padding: 0 8px;}
+        
+   
+       .social-links li {
+        padding: 0 5px;
+    }
+    
+    .content {
+        margin: 0;
+    }
+    
+    .post {
+        
+        padding-bottom: 30px;
+        
+        margin-bottom: 30px;
+        border-bottom: 0;
+    }
+    
+    .non-media {
+        padding: 0 30px;
+    }
+    
+    .post-footer {
+        font-size: 11px;
+        margin-top: 15px;
+        padding: 0 30px;
+    }
+    
+    .credit {
+        display: none;
+    }
+    
+}
+  
+        
+        @media screen and (max-width:650px) {      
+            span.action  { font-size:9px;position:relative;
+top: -26px;
+left: 16px;}
+}  
+        /*Tumblr inherited */
+        iframe#tumblr_controls {}
+        .search_query {}
+        .read_more_container a {}
+        
+        {CustomCSS}
+    </style>
+   
+         <!--Normalize 3.0.0 CSS-->
+     <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+
+<body>
+
+    <div class="container">
+        
+            <aside id="sidebar">
+                <header>
+                
+
+{block:IfAvatar}
+                    <div id="avatar">
+                        <a href="/"><img src="{PortraitURL-96}" alt="{Title}"></a>
+                    </div>{/block:IfAvatar} {block:IfNotAvatar} 
+
+                    <h1 id="title"><a href="/">{Title}</a></h1>{/block:IfNotAvatar}  {block:Description}
+
+                    <div class="description">
+                        {Description}
+                    </div>{/block:Description}
+                </header>
+
+                <div class="nav">
+            
+                    <ul>
+                        {block:HasPages} {block:Pages}
+
+                        <li><a href="{URL}">{Label}</a></li>
+
+                        {/block:Pages} {/block:HasPages} {block:SubmissionsEnabled}
+
+                        <li><a href="/submit">{SubmitLabel}</a></li>
+
+                        {/block:SubmissionsEnabled} {block:AskEnabled}
+
+                         <li><a href="/ask">{AskLabel}</a></li>
+
+                        {/block:AskEnabled}
+                    </ul>
+                    
+                    {block:IfShowSearchBar}
+<form action='/search' class="search" id='nav-search' method='get'>
+<input name='q' type='text' placeholder='Search...' value='{SearchQuery}'/>
+</form>
+
+{/block:IfShowSearchBar}
+                </div>
+
+       <ul class="social-icons">
+       {block:IfTwitter}
+       <li><a class="twitter" href="{text:TwitterURL}" title="Twitter"><span class="socicon">a</span></a></li>
+ 
+       {/block:IfTwitter}
+       {block:IfFacebook}
+       <li><a class="facebook" href="{text:FacebookURL}"><span class="socicon">b</span></a></li>
+       {/block:IfFacebook}
+       {block:IfDribbble}
+       <li><a class="dribbble" href="{text:DribbbleURL}"><span class="socicon">D</span></a></li>
+       {/block:IfDribbble}
+       {block:IfBehance}
+       <li><a class="behance" href="{text:BehanceURL}"><span class="socicon">H</span></a></li>
+       {/block:IfBehance}
+        {block:IfYoutube}
+       <li><a class="youtube" href="{text:YoutubeURL}"><span class="socicon">r</span></a></li>
+       {/block:IfYoutube}
+        {block:IfSoundcloud}
+       <li><a class="soundcloud" href="{text:SoundcloudURL}"><span class="socicon">n</span></a></li>
+       {/block:IfSoundcloud}
+        {block:IfGoogleplus}
+       <li><a class="googleplus" href="{text:GoogleplusURL}"><span class="socicon">c</span></a></li>
+       {/block:IfGoogleplus}
+        {block:IfVimeo}
+       <li><a class="vimeo" href="{text:VimeoURL}"><span class="socicon">s</span></a></li>
+       {/block:IfVimeo}
+        {block:IfInstagram}
+       <li><a class="instagram" href="{text:InstagramURL}"><span class="socicon">x</span></a></li>
+       {/block:IfInstagram}
+       
+       {block:IfSteam}
+       <li><a class="steam" href="{text:SteamURL}"><span class="socicon">X</span></a></li>
+       {/block:IfSteam}
+       
+        {block:IfLinkedin}
+       <li><a class="linkedin" href="{text:LinkedinUrl}"><span class="socicon">j</span></a></li>
+       {/block:IfLinkedin}
+       
+       
+       
+       {block:IfEmail}
+       <li><a class="email" href="mailto:{text:EmailURL}"><svg version="1.1" id="svg-email" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="20.803px" height="14.533px" viewBox="0 0 20.803 14.533" enable-background="new 0 0 20.803 14.533" xml:space="preserve">
+<g>
+	<polygon fill="{color:SocialIcons}" points="20.352,0 0.606,0 10.405,8.542 	"/>
+	<path fill="{color:SocialIcons}" d="M4.772,5.648L0,1.487v10.72l4.664-6.458C4.694,5.708,4.736,5.683,4.772,5.648z"/>
+	<path fill="{color:SocialIcons}" d="M14.747,6.817l-3.85,3.306c-0.143,0.122-0.318,0.184-0.495,0.184c-0.178,0-0.356-0.062-0.5-0.188L5.9,6.631
+		C5.898,6.634,5.898,6.637,5.896,6.64l-5.701,7.894h20.124L14.747,6.817z"/>
+	<polygon fill="{color:SocialIcons}" points="15.903,5.823 20.803,12.606 20.803,1.616 	"/>
+</g>
+</svg>
+</a></li>
+       {/block:IfEmail}
+
+
+                </ul>
+      <div class="credits">
+                    <a href="http://gregory.sujkowski.fr" target="_blank">Big Guy Theme by GregSuj</a><br><br> <a href="http://socicon.com/" target="_blank">using Socion font </a>
+                </div>
+               
+            </aside>
+
+            <section class="content">
+            {block:IfInfiniteScroll}
+            <div class="autopagerize_page_element">
+            {/block:IfInfiniteScroll}
+                {block:Posts}
+
+                <article class="post {TagsAsClasses}">
+                    {block:Text}
+
+                    <div class="text">
+                        {block:Title}
+
+                        <h2>{Title}</h2>{/block:Title} {Body}
+                    </div>{/block:Text} {block:Quote}
+
+                    <div class="quote">
+                        <blockquote class="words {Length}">
+                            &#8220;{Quote}&#8221;
+                        </blockquote>{block:Source}
+
+                        <p class="source">&mdash; {Source}</p>{/block:Source}
+                    </div>{/block:Quote} {block:Link}
+
+                    <div class="link">
+                        <h3><a href="{URL}">{Name}</a></h3>{block:Description}
+
+                        <div class="caption">
+                            {Description}
+                        </div>{/block:Description}
+                    </div>{/block:Link}
+                    
+                    
+    {block:Video}
+
+                    <div class="video">
+                         {Video-700} {block:Caption}
+
+                        <div class="caption">
+                            {Caption}
+                        </div>{/block:Caption}
+                    </div>{/block:Video}
+                    
+                    
+             
+                    
+          
+
+                    
+                    
+                    
+                    
+                    
+{block:Audio}
+<div class="audio">
+<div class="music-player-tumblr">
+{block:AudioPlayer}
+<div class="audio-base-btn"><div class="audio-play-btn">{block:IfWhiteAudioPlayer}{AudioPlayerWhite}{/block:IfWhiteAudioPlayer}
+{block:IfGreyAudioPlayer}{AudioPlayerGrey}{/block:IfGreyAudioPlayer}
+{block:IfBlackAudioPlayer}{AudioPlayerBlack}{/block:IfBlackAudioPlayer}</div></div>
+{/block:AudioPlayer}
+
+ 
+{block:AlbumArt}
+<img class="cover" src="{AlbumArtURL}" />
+{/block:AlbumArt}
+ 
+<div class="music-info">
+{block:TrackName}<span class="track-name">{TrackName}</span>{/block:TrackName}
+{block:Artist}<span class="artist-name">{Artist}</span>{/block:Artist} {block:Album}<span class="album-name">{Album}</span>{/block:Album}<br>
+
+
+</div></div>
+</div>
+{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+{/block:Audio}
+                    
+                    
+                    
+                    
+                     {block:Photo}
+
+                    <div class="photo">
+                        {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>{LinkCloseTag} {block:Caption}
+
+                        <div class="caption">
+                            {Caption}
+                        </div>{/block:Caption}
+                    </div>{/block:Photo} 
+                    
+                    
+                    
+            
+
+
+
+
+{block:Photoset}
+  <div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+    {block:Photos}
+      <img src="{PhotoURL-500}" id="photo_{PostID}" 
+        {block:HighRes}data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"{/block:HighRes}
+        {block:Caption}alt="{Caption}"{/block:caption} />
+    {/block:Photos}
+  </div>
+
+  {block:Caption}
+   <div class="caption">   {Caption}
+</div>  {/block:caption} 
+{/block:Photoset}
+
+
+                     {block:Panorama}
+
+                    <div class="panorama">
+                        {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">{LinkCloseTag} {block:Caption}
+
+                        <div class="caption">
+                            {Caption}
+                        </div>{/block:Caption}
+                    </div>{/block:Panorama} {block:Chat}
+
+
+                    <div class="chat">
+                        {block:Title}
+
+                        <h3>{Title}</h3>{/block:Title}
+
+                        <ul class="conversation">
+                            <li style="list-style: none">{block:Lines}</li>
+
+                            <li class="line {Alt}">{block:Label}<span class="person">{Label}</span>{/block:Label} <span class="person-said">{Line}</span></li>
+
+                            <li style="list-style: none">{/block:Lines}</li>
+                        </ul>
+                    </div>{/block:Chat} 
+                    
+                    {block:Submission} 
+               
+                      
+                    <div class="caption submission"> <img src="{SubmitterPortraitURL-64}"> <span class="submitter"><a href="{SubmitterURL}" target"_blank">{Submitter}</a> submitted this </span> </div>
+                   
+                    
+                    {/block:Submission}
+                    
+                    
+                    
+                    
+                    
+                    {block:Answer}
+
+                    <div class="answer">
+                    <div class="caption">
+                        <img src="{AskerPortraitURL-64}"> <span class="asker">{Asker} asked :</span> <span class="question">{Question}</span> <span class="answer-txt">{Answer}</span>
+                    </div></div>{/block:Answer} 
+                    
+                    
+                   
+
+                  
+                    
+                    
+ {block:IndexPage}
+                    <footer class="metadata">
+                        <ul class="index">
+                                          {block:ContentSource}
+                            
+                            <li><a href="{SourceURL}">{lang:Source}: {block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo} {block:SourceLogo}<img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}">{/block:SourceLogo}</a></li>
+                              {/block:ContentSource}
+                           
+                            {block:IfShowNoteCount}{block:NoteCount}
+                           
+                            <li>
+                            <a class="notecount" href="{Permalink}#notes">{NoteCountWithLabel}</a></li>
+
+                           
+                            {/block:NoteCount} 
+                            {/block:IfShowNoteCount}
+             
+                           {block:IfShowTags}
+                             {block:HasTags}
+
+                       
+                            {block:Tags}
+
+                            <li><a href="{TagURL}">#{Tag}</a></li>
+
+                           {/block:Tags}
+                       {/block:HasTags} 
+{/block:IfShowTags}
+  {block:IfShowTimeAgo}
+                            {block:Date} 
+
+                            <li><a href="{Permalink}">{TimeAgo}</a></li>
+
+                     {/block:Date}
+                       
+                     
+{/block:IfShowTimeAgo}
+                         </ul>
+                  <div id="likereblog">
+                            {block:IfLikeButton} {LikeButton size="20"}{/block:IfLikeButton}
+                        {block:IfReblogButton} {ReblogButton size="20"} {/block:IfReblogButton}
+                        </div>
+                        
+                    </footer>
+                  
+                   {/block:IndexPage}
+                       
+                        
+                        {block:PermalinkPage} 
+                        
+                        
+                    <footer class="metadata permalink">
+                        <ul class="index">
+                                          {block:ContentSource}
+                            
+                            <li><a href="{SourceURL}">{lang:Source}: {block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo} {block:SourceLogo}<img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}">{/block:SourceLogo}</a></li>
+                              {/block:ContentSource}
+                           
+                            {block:IfShowNoteCount}{block:NoteCount}
+                           
+                            <li>
+                            <a class="notecount" href="{Permalink}#notes">{NoteCountWithLabel}</a></li>
+
+                           
+                            {/block:NoteCount} 
+                            {/block:IfShowNoteCount}
+             
+                           {block:IfShowTags}
+                             {block:HasTags}
+
+                       
+                            {block:Tags}
+
+                            <li><a href="{TagURL}">#{Tag}</a></li>
+
+                           {/block:Tags}
+                       {/block:HasTags} 
+{/block:IfShowTags}
+                         </ul>
+                    <div id="likereblogpermalink">
+                          {block:IfLikeButton} {LikeButton size="20"}{/block:IfLikeButton}
+                        {block:IfReblogButton} {ReblogButton size="20"} {/block:IfReblogButton}
+                        </div>
+                        
+                    </footer>
+                        
+                        
+            
+                        
+                        {block:PostNotes} 
+
+                        <div id="notes">
+                            {PostNotes-64}
+                        </div>
+                        {/block:PostNotes}
+
+
+    {block:PermalinkPagination} 
+
+    <div class="pagination">
+    
+       
+    {block:PreviousPost}<a href="{PreviousPost}" class="prev">Previous post</a>    
+    {/block:PreviousPost}
+ 
+    {block:NextPost}
+        <a href="{NextPost}" class="next">Next Post</a>
+    {/block:NextPost} 
+    </div>{/block:PermalinkPagination} 
+
+    
+     
+                        {/block:PermalinkPage} 
+                        
+                      
+              
+                </article>
+              
+                {/block:Posts}
+                        {block:IfInfiniteScroll}
+            </div>
+            {/block:IfInfiniteScroll}
+             {block:ifNotInfiniteScroll}
+     {block:Pagination}
+
+    <div class="pagination">
+    
+        {block:PreviousPage}<a href="{PreviousPage}" class="prev">Previous </a>{/block:PreviousPage}
+{block:NextPage}<a href="{NextPage}" class="next">Next</a>{/block:NextPage}
+    </div>{/block:Pagination}
+    {/block:ifNotInfiniteScroll}
+    <!--close content-->
+                
+            </section>
+
+   
+
+    
+
+        <!-- 
+GOOGLE ANALYTICS CODE
+-->  
+   {block:IfGoogleAnalyticsID}
+<script>
+var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+{/block:IfGoogleAnalyticsID}
+
+</body>
+</html>
