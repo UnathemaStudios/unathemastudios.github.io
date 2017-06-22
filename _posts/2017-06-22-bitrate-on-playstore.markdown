@@ -5,8 +5,8 @@ date:   2017-06-22
 categories: main
 ---
 
-Our first app  is finily on Playstore!
-Wiith development descriptions so far, but official commercial use app is on the way!
+Our first app  is finally on Playstore!
+With development descriptions so far, but official commercial use app is on the way!
  
 You can check it [here][bit-pl-link], and [e-mail][email-link] us for some feedback ;)
 
